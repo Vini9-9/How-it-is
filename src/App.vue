@@ -2,8 +2,8 @@
   <div id="app">
     <h1>{{ titulo }}</h1>
     <ul>
-      <li>
-        <h2>#1 {{ produto.nome }}</h2>
+      <li v-for="produto of produtos">
+        <h2>{{ produto.nome }}</h2>
         <img :src="produto.url" alt="" >
         <h2>{{ msgProduto }}</h2>
         <img :src="produto.fotoReal.url" alt="" >
@@ -21,15 +21,29 @@ export default {
       titulo: 'Bem vindo ao How It Is',
       msgProduto: 'Como realmente é:',
       msgDono: 'Foto tirada por: ',
-      produto: {
+      produtos: [
+        {
         nome: 'Big Mac',
         url: 'https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kzXCTbnv/200/200/original?country=br',
-        fotoReal: {
+        fotoReal: 
+          {
           url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Big_Mac_hamburger.jpg/694px-Big_Mac_hamburger.jpg',
           dono: 'Evan-Amos',
           local: 'Estados Unidos'
+          }
+        }, 
+        {
+        nome: 'Burger King bacon cheeseburger',
+        url: 'https://bk-cms-dev.s3.amazonaws.com/_800x600_crop_center-center_none/cheeseburger-bacon-thumb_2021-09-16-134755_cxdp.png?mtime=20210916094755&focal=none&tmtime=20210916095009',
+        fotoReal: 
+          {
+          url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Burger-King-Bacon-Cheeseburger.jpg/1200px-Burger-King-Bacon-Cheeseburger.jpg',
+          dono: 'Evan-Amos',
+          local: 'Estados Unidos'
+          }
         }
-      }
+
+      ]
     }
   }
 }
