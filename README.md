@@ -1,4 +1,9 @@
 # how-it-is
+<b>Objetivo:</b> Comparar produtos meramente ilustrativos com os produtos reais.
+
+
+## Primeira amostra
+![image](https://user-images.githubusercontent.com/58668142/148712561-4166d362-1bd7-497c-8343-509fd7128b77.png)
 
 > A Vue.js project
 
