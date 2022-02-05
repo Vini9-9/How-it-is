@@ -1,15 +1,29 @@
 <template>
   <div id="app">
-    <h1>{{ titulo }}</h1>
-    <ul>
-      <li v-for="produto of produtos">
-        <h2>{{ produto.nome }}</h2>
-        <img :src="produto.url" alt="" >
-        <h2>{{ msgProduto }}</h2>
-        <img :src="produto.fotoReal.url" alt="" >
-        <sub>{{msgDono}} {{ produto.fotoReal.dono }} - {{ produto.fotoReal.local }}</sub>
-      </li>
-    </ul>
+    <header>
+      <img :src="logo" alt="Logo How it is" class="logo">
+      <nav>
+        <ul class="nav_links">
+          <li><a href="">Home</a></li>
+          <li><a href="">Cadastrar</a></li>
+          <li><a href="">Sobre nós</a></li>
+        </ul>
+      </nav>
+      <button class="login-btn">Login</button>
+    </header>
+    <section class="content">
+      <h1 id="titulo">{{ titulo }}</h1>
+      <h2 id="slogan">{{ slogan }}</h2>
+      <ul>
+        <li v-for="produto of produtos">
+          <h2>{{ produto.nome }}</h2>
+          <img :src="produto.url" alt="" >
+          <h2>{{ msgProduto }}</h2>
+          <img :src="produto.fotoReal.url" alt="" >
+          <sub>{{msgDono}} {{ produto.fotoReal.dono }} - {{ produto.fotoReal.local }}</sub>
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
@@ -18,7 +32,9 @@ export default {
   name: 'app',
   data () {
     return {
-      titulo: 'Bem vindo ao How It Is',
+      titulo: 'Confira como os produtos realmente são*',
+      slogan: '*Imagens nada ilustrativas',
+      logo: '../src/assets/logo-head.png',
       msgProduto: 'Como realmente é:',
       msgDono: 'Foto tirada por: ',
       produtos: [
@@ -50,31 +66,96 @@ export default {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #d6da4b;
+}
+
+header {
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0px 35px 15px 35px;
+}
+
+header img.logo {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+header button {
+  margin-left: 35px;
+  background-color: #1b9bd6;
+  border-radius: 50px;
+  cursor: pointer;
+  padding: 10px 25px;
+  opacity: 1;
+  transition: opacity 1s ease 0s;
+}
+
+header button:hover {
+  opacity: 0.8;
+}
+
+li, a, button{
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  color: black;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.nav_links {
+  list-style: none;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 30px;
+  
+}
+
+.nav_links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+  color: #1190cb;
+}
+
+.content{
+  background-color:#1190cb;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 30px;
 }
 
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-img {
+.content img {
   margin-left: 25%;
   margin-right: 25%;
   width: 50%;
 }
+
+.content h1, h2 {
+  font-weight: normal;
+}
+
+.content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content li {
+  display: inline-block;
+  margin: 10px 10px;
+}
+
 </style>
