@@ -1,9 +1,9 @@
 <template>
     <header>
         <img :src="scrLogo" alt="Logo How it is" class="logo">
+        <b-form-input id="input-busca" type="search" placeholder="O que você procura?"></b-form-input>
         <nav>
             <ul class="nav_links">
-                <li><a href="">Busca</a></li>
                 <li><a href="">Cadastro</a></li>
                 <li><a href="">Sobre nós</a></li>
             </ul>
@@ -13,9 +13,14 @@
 </template>
 
 <script>
+
 export default {
-  props: ['scrLogo']
+  props: ['scrLogo'],
+  methods: {
+
+  }
 }
+
 </script>
 
 <style>
@@ -35,6 +40,10 @@ header {
   justify-content: flex-end;
   align-items: center;
   margin: 0px 35px 15px 35px;
+}
+
+#input-busca {
+  width: 40%;
 }
 
 header img.logo {
@@ -68,16 +77,18 @@ li, a, button{
 
 .nav_links {
   list-style: none;
+  margin: 0px;
 }
 
 .nav_links li {
-  display: inline-block;
+  display: inline-flex;
   padding: 0px 30px;
   
 }
 
 .nav_links li a {
   transition: all 0.3s ease 0s;
+  cursor: pointer;
 }
 
 .nav_links li a:hover {
