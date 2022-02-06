@@ -1,9 +1,11 @@
 # how-it-is
+![logo-com-slogan](https://user-images.githubusercontent.com/58668142/152666571-448f38ba-618b-4197-bedc-6ba1374e88e5.png)
+
 <b>Objetivo:</b> Comparar produtos meramente ilustrativos com os produtos reais.
 
 
 ## Primeira amostra
-![image](https://user-images.githubusercontent.com/58668142/148712561-4166d362-1bd7-497c-8343-509fd7128b77.png)
+![image](https://user-images.githubusercontent.com/58668142/152666557-20c423f4-2f53-40a9-8b2d-6374df614676.png)
 
 > A Vue.js project
 
