@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <header>
-      <img :src="logo" alt="Logo How it is" class="logo">
-      <nav>
-        <ul class="nav_links">
-          <li><a href="">Home</a></li>
-          <li><a href="">Cadastrar</a></li>
-          <li><a href="">Sobre nós</a></li>
-        </ul>
-      </nav>
-      <button class="login-btn">Login</button>
-    </header>
+    <my-header :scrLogo="logo">
+    </my-header>
     <section class="content">
-      <h1 id="titulo">{{ titulo }}</h1>
-      <h2 id="slogan">{{ slogan }}</h2>
+      <div class="introduction">
+        <h1 id="title">{{ titulo }}</h1>
+        <h2 id="slogan">{{ slogan }}</h2>
+      </div>
       <ul>
         <li v-for="produto of produtos">
           <h2>{{ produto.nome }}</h2>
@@ -28,7 +21,13 @@
 </template>
 
 <script>
+import Header from "./components/shared/header/Header.vue";
+
 export default {
+
+  components: {
+    'my-header': Header
+  },
   name: 'app',
   data () {
     return {
@@ -76,59 +75,9 @@ export default {
   background-color: #d6da4b;
 }
 
-header {
-  display: flex;
-  align-content: center;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0px 35px 15px 35px;
-}
 
-header img.logo {
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  margin-right: auto;
-  margin-top: 15px;
-}
-
-header button {
-  margin-left: 35px;
-  background-color: #1b9bd6;
-  border-radius: 50px;
-  cursor: pointer;
-  padding: 10px 25px;
-  opacity: 1;
-  transition: opacity 1s ease 0s;
-}
-
-header button:hover {
-  opacity: 0.8;
-}
-
-li, a, button{
-  font-family: 'Baloo Bhaijaan 2', cursive;
-  color: black;
-  text-decoration: none;
-  font-size: 1.2em;
-}
-
-.nav_links {
-  list-style: none;
-}
-
-.nav_links li {
-  display: inline-block;
-  padding: 0px 30px;
-  
-}
-
-.nav_links li a {
-  transition: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover {
-  color: #1190cb;
+.introduction {
+  color: aliceblue;
 }
 
 .content{
