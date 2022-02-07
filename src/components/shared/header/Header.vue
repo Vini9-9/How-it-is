@@ -1,7 +1,12 @@
 <template>
     <header>
         <img :src="scrLogo" alt="Logo How it is" class="logo">
-        <b-form-input id="input-busca" type="search" placeholder="O que você procura?"></b-form-input>
+        <b-input-group id="input-group-busca" size="sm" class="mb-2">
+          <b-form-input id="input-busca" type="search" v-model.trim="filtro" placeholder="O que você procura?"></b-form-input>
+          <b-input-group-prepend is-text>
+            <b-icon icon="search"></b-icon>
+          </b-input-group-prepend>
+        </b-input-group>
         <nav>
             <ul class="nav_links">
                 <li><a href="">Cadastro</a></li>
@@ -18,7 +23,14 @@ export default {
   props: ['scrLogo'],
   methods: {
 
+  },
+
+  data () {
+    return {
+      filtro: ''
+    }
   }
+
 }
 
 </script>
@@ -42,8 +54,8 @@ header {
   margin: 0px 35px 15px 35px;
 }
 
-#input-busca {
-  width: 40%;
+#input-group-busca {
+  width: 30%;
 }
 
 header img.logo {
