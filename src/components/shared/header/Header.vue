@@ -3,10 +3,10 @@
         <img :src="scrLogo" alt="Logo How it is" class="logo">
         <b-input-group id="input-group-busca" size="sm" class="mb-2">
           <b-form-input id="input-busca" type="search" v-model.trim="filtro" placeholder="O que você procura?"></b-form-input>
-          <b-input-group-prepend is-text>
-            <b-icon icon="search"></b-icon>
+          <b-input-group-prepend is-text v-on:click="optionChanged">
+            <b-icon icon="search" ></b-icon>
           </b-input-group-prepend>
-        </b-input-group>
+        </b-input-group >
         <nav>
             <ul class="nav_links">
                 <li><a href="">Cadastro</a></li>
@@ -21,13 +21,16 @@
 
 export default {
   props: ['scrLogo'],
-  methods: {
-
-  },
 
   data () {
     return {
       filtro: ''
+    }
+  },
+  methods: {
+    optionChanged: function (value) {
+      console.info("optionChanged")
+      this.$emit('update:option', this.filtro)
     }
   }
 
@@ -35,7 +38,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&display=swap');
 

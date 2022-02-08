@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <my-header :scrLogo="logo">
+    <my-header :scrLogo="logo" @update:option="optionUpdate">
     </my-header>
     <section class="content">
-      <div class="introduction">
+      <div id='intro' class="introduction">
         <h1 id="title">{{ titulo }}</h1>
         <h2 id="slogan">{{ slogan }}</h2>
       </div>
       <ul>
-        <li v-for="produto of produtos">
+        <h2 id="info-resultado">Resultados de: <span v-text="filtro"></span></h2>
+        <li v-for="produto of produtosComFiltro">
           <h2>{{ produto.nome }}</h2>
           <img :src="produto.url" alt="" >
           <h2>{{ msgProduto }}</h2>
@@ -36,6 +37,7 @@ export default {
       logo: '../src/assets/logo-head.png',
       msgProduto: 'Como realmente é:',
       msgDono: 'Foto tirada por: ',
+      filtro: '',
       produtos: [
         {
         nome: 'Big Mac',
@@ -60,6 +62,33 @@ export default {
 
       ]
     }
+  },
+  computed: {
+
+    produtosComFiltro() {
+      console.log("produtosComFiltro");
+      
+      var elInfoResultado = document.getElementById('info-resultado')
+      var elIntro = document.getElementById('intro')
+
+      if(this.filtro) {
+        
+        elIntro.style.display = 'none';
+        elInfoResultado.style.display = 'block';
+        let exp = new RegExp(this.filtro, 'i');
+        return this.produtos.filter(produto => exp.test(produto.nome));
+      } else {
+        
+        elIntro ? elIntro.style.display = 'block' : null;
+        elInfoResultado ? elInfoResultado.style.display = 'none' : null;
+        return this.produtos;
+      }
+    }
+  },
+  methods: {
+    optionUpdate: function (value) {
+      this.filtro = value;
+    }
   }
 }
 </script>
@@ -78,6 +107,10 @@ export default {
 
 .introduction {
   color: aliceblue;
+}
+
+#info-resultado{
+  display:none;
 }
 
 .content{
