@@ -3,7 +3,7 @@
         <img :src="scrLogo" alt="Logo How it is" class="logo">
         <b-input-group id="input-group-busca" size="sm" class="mb-2">
           <b-form-input id="input-busca" type="search" v-model.trim="filtro" placeholder="O que você procura?"></b-form-input>
-          <b-input-group-prepend is-text v-on:click="optionChanged">
+          <b-input-group-prepend is-text v-on:click="searchChanged">
             <b-icon icon="search" ></b-icon>
           </b-input-group-prepend>
         </b-input-group >
@@ -28,9 +28,9 @@ export default {
     }
   },
   methods: {
-    optionChanged: function (value) {
-      console.info("optionChanged")
-      this.$emit('update:option', this.filtro)
+    searchChanged: function (value) {
+      console.info("searchChanged")
+      this.$emit('update:search', this.filtro)
     }
   }
 

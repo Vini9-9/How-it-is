@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <my-header :scrLogo="logo" @update:option="optionUpdate">
+    <my-header :scrLogo="logo" @update:search="searchUpdate">
     </my-header>
     <section class="content">
       <div id='intro' class="introduction">
@@ -86,7 +86,7 @@ export default {
     }
   },
   methods: {
-    optionUpdate: function (value) {
+    searchUpdate: function (value) {
       this.filtro = value;
     }
   }
