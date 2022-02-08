@@ -1,6 +1,6 @@
 <template>
     <header>
-        <img :src="scrLogo" alt="Logo How it is" class="logo">
+        <img href="#" :src="scrLogo" alt="Logo How it is" class="logo">
         <b-input-group id="input-group-busca" size="sm" class="mb-2">
           <b-form-input id="input-busca" type="search" v-model.trim="filtro" placeholder="O que você procura?"></b-form-input>
           <b-input-group-prepend is-text v-on:click="searchChanged">
@@ -9,7 +9,7 @@
         </b-input-group >
         <nav>
             <ul class="nav_links">
-                <li><a href="">Cadastro</a></li>
+                <li><a href="./cadastro">Cadastro</a></li>
                 <li><a href="">Sobre nós</a></li>
             </ul>
         </nav>
