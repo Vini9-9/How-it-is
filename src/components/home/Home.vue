@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <my-header :scrLogo="logo" @update:search="searchUpdate">
+    <my-header @update:search="searchUpdate">
     </my-header>
     <section class="content">
       <div id='intro' class="introduction">
@@ -34,7 +34,6 @@ export default {
     return {
       titulo: 'Confira como os produtos realmente são*',
       slogan: '*Imagens nada ilustrativas',
-      logo: '../src/assets/logo-head.png',
       msgProduto: 'Como realmente é:',
       msgDono: 'Foto tirada por: ',
       filtro: '',

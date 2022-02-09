@@ -1,6 +1,6 @@
 <template>
     <header>
-        <img href="#" :src="scrLogo" alt="Logo How it is" class="logo">
+        <img href="/" :src="logo" alt="Logo How it is" class="logo">
         <b-input-group id="input-group-busca" size="sm" class="mb-2">
           <b-form-input id="input-busca" type="search" v-model.trim="filtro" placeholder="O que você procura?"></b-form-input>
           <b-input-group-prepend is-text v-on:click="searchChanged">
@@ -9,8 +9,11 @@
         </b-input-group >
         <nav>
             <ul class="nav_links">
-                <li><a href="./cadastro">Cadastro</a></li>
-                <li><a href="">Sobre nós</a></li>
+                <li v-for="route in routes">
+                  <router-link :to="route.path">{{ route.titulo }}</router-link>
+                </li>
+<!--                 <li><router-link to="./cadastro">Cadastro</router-link></li>
+                <li><router-link to="#">Sobre nós</router-link></li> -->
             </ul>
         </nav>
         <button class="login-btn">Login</button>
@@ -19,12 +22,16 @@
 
 <script>
 
+import { routes } from '../../../routes';
+
 export default {
   props: ['scrLogo'],
 
   data () {
     return {
-      filtro: ''
+      routes,
+      filtro: '',
+      logo: '../src/assets/logo-head.png'
     }
   },
   methods: {
