@@ -1,5 +1,9 @@
 <template>
-    <div>Cadastro</div>
+<div id="cadastro">
+  <my-header></my-header>
+  <h2>Cadastro</h2>
+</div>
+  
 </template>
 
 <script>
