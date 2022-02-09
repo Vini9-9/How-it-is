@@ -31,7 +31,7 @@ export default {
     return {
       routes,
       filtro: '',
-      logo: '../src/assets/logo-head.png'
+      logo: '/src/assets/logo-head.png'
     }
   },
   methods: {
